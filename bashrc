@@ -108,3 +108,31 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+# 
+# Aliases
+#
+alias ll='ls -l'
+alias l.='ls -d .*'   # show hidden files
+
+alias cp='cp -i'
+alias rm='rm -i --preserve-root'
+alias mv='mv -i'
+alias ln='ln -i'
+
+alias grep='grep --color=auto'
+alias bc='bc -l'      # bc with mathlib support
+alias apt-get='sudo apt-get'
+alias su='sudo -i'    # become root
+alias wget='wget -c'  # resume getting a partially downloaded file
+alias df='df -H'
+alias du='du -ch'
+
+## get top process eating memory
+alias psmem='ps auxf | sort -nr -k 4'
+## get top process eating cpu ##
+alias pscpu='ps auxf | sort -nr -k 3'
+## Get server cpu info ##
+alias cpuinfo='lscpu'
+
+
