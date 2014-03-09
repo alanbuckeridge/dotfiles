@@ -76,27 +76,10 @@ esac
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-
-    #alias grep='grep --color=auto'
-    #alias fgrep='fgrep --color=auto'
-    #alias egrep='egrep --color=auto'
+    alias grep='grep --color=auto'
 fi
 
-# some more ls aliases
-#alias ll='ls -l'
-#alias la='ls -A'
-#alias l='ls -CF'
 
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -109,23 +92,31 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# 
+#-------------------------------------------------------------
 # Aliases
-#
-alias ll='ls -l'
-alias l.='ls -d .*'   # show hidden files
+#-------------------------------------------------------------
+alias cd..='cd ..'
+
+# The ubiquitous 'll': directories first, with alphanumeric sorting:
+alias ll="ls -lv --group-directories-first"
+
+alias l.='ls -d .*'        # show hidden files
+alias lx='ls -lXB'         #  Sort by extension.
+alias lk='ls -lSr'         #  Sort by size, biggest last.
+alias lt='ls -ltr'         #  Sort by date, most recent last.
+alias lc='ls -ltcr'        #  Sort by/show change time,most recent last.
+alias lu='ls -ltur'        #  Sort by/show access time,most recent last.
 
 alias cp='cp -i'
 alias rm='rm -i --preserve-root'
 alias mv='mv -i'
 alias ln='ln -i'
 
-alias grep='grep --color=auto'
 alias bc='bc -l'      # bc with mathlib support
 alias apt-get='sudo apt-get'
 alias su='sudo -i'    # become root
 alias wget='wget -c'  # resume getting a partially downloaded file
-alias df='df -H'
+alias df='df -kTH'
 alias du='du -ch'
 
 ## get top process eating memory
@@ -134,5 +125,38 @@ alias psmem='ps auxf | sort -nr -k 4'
 alias pscpu='ps auxf | sort -nr -k 3'
 ## Get server cpu info ##
 alias cpuinfo='lscpu'
+
+#-------------------------------------------------------------
+# Tailoring 'less'
+#-------------------------------------------------------------
+
+# alias more='less'
+# export PAGER=less
+# export LESSCHARSET='latin1'
+# export LESSOPEN='|/usr/bin/lesspipe.sh %s 2>&-'
+#                 # Use this if lesspipe.sh exists.
+# export LESS='-i -N -w  -z-4 -g -e -M -X -F -R -P%t?f%f \
+# :stdin .?pb%pb\%:?lbLine %lb:?bbByte %bb:-...'
+
+# LESS man page colors (makes Man pages more readable).
+# export LESS_TERMCAP_mb=$'\E[01;31m'
+# export LESS_TERMCAP_md=$'\E[01;31m'
+# export LESS_TERMCAP_me=$'\E[0m'
+# export LESS_TERMCAP_se=$'\E[0m'
+# export LESS_TERMCAP_so=$'\E[01;44;33m'
+# export LESS_TERMCAP_ue=$'\E[0m'
+# export LESS_TERMCAP_us=$'\E[01;32m'
+
+
+#-------------------------------------------------------------
+# Environment variables
+#-------------------------------------------------------------
+
+export JAVA_HOME=/usr/lib/jvm/java-7-oracle/
+
+# Maven
+export M2_HOME=/home/alan/opt/apache-maven-3.2.1
+export M2=$M2_HOME/bin
+export PATH=$M2:$PATH
 
 
