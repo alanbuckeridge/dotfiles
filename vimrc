@@ -29,6 +29,7 @@ Bundle 'bling/vim-airline'
 Bundle 'jaromero/vim-monokai-refined'
 Bundle 'mattn/emmet-vim'
 Bundle 'tomasr/molokai'
+Bundle 'vim-scripts/javacomplete'
 
 filetype plugin indent on     " required
 " To ignore plugin indent changes, instead use:
@@ -201,7 +202,9 @@ if has ("autocmd")
   augroup END
 
   " OmniComplete
+  set ofu=syntaxcomplete#Complete
   autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+  autocmd FileType java set omnifunc=javacomplete#Complete
   autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
   autocmd FileType css set omnifunc=csscomplete#CompleteCSS
   autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
