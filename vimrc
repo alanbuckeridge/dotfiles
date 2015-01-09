@@ -2,8 +2,8 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 " alternatively, pass a path where Vundle should install bundles
 "let path = '~/some/path/here'
 "call vundle#rc(path)
@@ -30,7 +30,16 @@ Bundle 'jaromero/vim-monokai-refined'
 Bundle 'mattn/emmet-vim'
 Bundle 'tomasr/molokai'
 Bundle 'vim-scripts/javacomplete'
+Bundle 'rking/ag.vim'
+" Snippets begin
+Bundle "MarcWeber/vim-addon-mw-utils"
+Bundle "tomtom/tlib_vim"
+Bundle "garbas/vim-snipmate"
+Bundle "honza/vim-snippets"
+" Snippets end
 
+" All of your plugins must be added before the following line
+call vundle#end()				" required
 filetype plugin indent on     " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
@@ -58,9 +67,7 @@ if &t_Co > 2 || has("gui_running")
   set incsearch      " search incremently (search while typing)
   set number
   set bg=dark	" most terminals have a dark background
-endif
-if has("gui_running")
-  colorscheme molokai
+  colorscheme Monokai-Refined
   set cursorline	" highlight current line
 endif
 
