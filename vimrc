@@ -60,16 +60,13 @@ autocmd FileType html,css,xml,xsd,xsl,java EmmetInstall
 
 runtime macros/matchit.vim    " enable Matchit
 
-" color settings (if terminal/gui supports it)
-if &t_Co > 2 || has("gui_running")
-  syntax on          " enable colors
-  set hlsearch       " highlight search (very useful!)
-  set incsearch      " search incremently (search while typing)
-  set number
-  set bg=dark	" most terminals have a dark background
-  colorscheme Monokai-Refined
-  set cursorline	" highlight current line
-endif
+syntax on          " enable colors
+set hlsearch       " highlight search (very useful!)
+set incsearch      " search incremently (search while typing)
+set number
+colorscheme molokai
+set bg=dark	" most terminals have a dark background
+set cursorline	" highlight current line
 
 set ignorecase	" searches are case insensitive
 set smartcase	" ... unless they contain at least one capital letter
@@ -174,6 +171,7 @@ vnoremap / /\v
 " buffer
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
+
 if has ("autocmd")
   " change to directory of current file automatically
   " autocmd BufEnter * lcd %:p:h
@@ -186,6 +184,7 @@ if has ("autocmd")
     " Conform to PEP8
     au FileType python set tabstop=4 softtabstop=4 expandtab shiftwidth=4 cinwords=if,elif,else,for,while,try,except,finally,def,class
   augroup END
+
 
   augroup perl
     " reset (disable previous 'augroup perl' settings)
