@@ -97,6 +97,8 @@ fi
 #-------------------------------------------------------------
 alias cd..='cd ..'
 
+alias ls='ls -G'           #  Use colour
+
 # The ubiquitous 'll': directories first, with alphanumeric sorting:
 alias ll="ls -lv --group-directories-first"
 
