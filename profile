@@ -14,6 +14,9 @@ if [ -n "$BASH_VERSION" ]; then
     if [ -f "$HOME/.bashrc" ]; then
 	. "$HOME/.bashrc"
     fi
+    if [ -f "$HOME/.bash_profile_deveire" ]; then
+	. "$HOME/.bash_profile_deveire"
+    fi
 fi
 
 # include sbin in PATH
