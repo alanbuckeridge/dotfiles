@@ -17,6 +17,12 @@ if [ -n "$BASH_VERSION" ]; then
     if [ -f "$HOME/.bash_profile_local" ]; then
 	. "$HOME/.bash_profile_local"
     fi
+    if [ -f "$HOME/dotfiles/git-prompt.sh" ]; then
+	. "$HOME/dotfiles/git-prompt.sh"
+    fi
+    if [ -f "$HOME/dotfiles/git-completion.bash" ]; then
+	. "$HOME/dotfiles/git-completion.bash"
+    fi
 fi
 
 # include sbin in PATH
