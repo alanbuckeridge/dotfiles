@@ -82,16 +82,16 @@ Intel(R) Xeon(R) CPU E5430 Quad Core @ 2.66GHz
 Total CPU: ${cpu cpu0}%
 ${color 597DB2}${cpubar}$color
 ${cpugraph 000000 597DB2}
-Core 1: ${freq 1} MHz        Temprature: $color ${exec sensors|grep 'Core0'|awk '{print $3}'}
+Core 1: ${freq 1} MHz        Temprature: $color ${exec sensors|grep 'Core 0'|awk '{print $3}'}
 ${cpu cpu1}% ${color 597DB2}${cpubar cpu1}$color
-Core 2: ${freq 2} MHz        Temprature: $color ${exec sensors|grep 'Core1'|awk '{print $3}'}
+Core 2: ${freq 2} MHz        Temprature: $color ${exec sensors|grep 'Core 1'|awk '{print $3}'}
 ${cpu cpu2}% ${color 597DB2}${cpubar cpu2}$color
-Core 3: ${freq 3} MHz        Temprature: $color ${exec sensors|grep 'Core2'|awk '{print $3}'}
+Core 3: ${freq 3} MHz        Temprature: $color ${exec sensors|grep 'Core 2'|awk '{print $3}'}
 ${cpu cpu3}% ${color 597DB2}${cpubar cpu3}$color
-Core 4: ${freq 4} MHz        Temprature: $color ${exec sensors|grep 'Core3'|awk '{print $3}'}
+Core 4: ${freq 4} MHz        Temprature: $color ${exec sensors|grep 'Core 3'|awk '{print $3}'}
 ${cpu cpu4}% ${color 597DB2}${cpubar cpu4}$color
 
-NAME            PID	 CPU%  	MEM%
+NAME               PID	  CPU% 	 MEM%
 ${color CCFFFF}${top name 1} ${top pid 1} ${top cpu 1} ${top mem 1}
 ${top name 2} ${top pid 2} ${top cpu 2} ${top mem 2}
 ${top name 3} ${top pid 3} ${top cpu 3} ${top mem 3}
