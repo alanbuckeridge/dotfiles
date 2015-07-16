@@ -36,6 +36,7 @@ Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
 Bundle "garbas/vim-snipmate"
 Bundle "honza/vim-snippets"
+Bundle "jnurmine/Zenburn"
 " Snippets end
 
 " All of your plugins must be added before the following line
@@ -64,7 +65,7 @@ syntax on          " enable colors
 set hlsearch       " highlight search (very useful!)
 set incsearch      " search incremently (search while typing)
 set number
-colorscheme molokai
+colorscheme zenburn
 set bg=dark	" most terminals have a dark background
 set cursorline	" highlight current line
 
