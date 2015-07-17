@@ -103,8 +103,8 @@ RAM: $memperc%  ${color FF6600} ${membar 6}$color
 Swap: $swapperc%  ${color FF6600} ${swapbar 6}$color
 
 ${color CC9900}DISK ${hr 2}$color
-sdc5 ${fs_type} (Root): ${fs_free_perc /}% ${color FFFF33} ${fs_bar 6 /}$color
-sdc1 NTFS (Data): ${fs_free_perc /media/alan}% ${color FFFF33} ${fs_bar 6 /media/alan}$color
+sdc5 ${fs_type} (Root): ${fs_used_perc /}% ${color FFFF33} ${fs_bar 6 /}$color
+sdc1 NTFS (Data): ${fs_used_perc /media/alan}% ${color FFFF33} ${fs_bar 6 /media/alan}$color
 
 ${color CC9900}NETWORK (${addr wlan0}) ${hr 2}$color
 Down: $color${downspeed wlan0} k/s ${alignr}Up: ${upspeed wlan0} k/s
