@@ -36,8 +36,10 @@ Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
 Bundle "garbas/vim-snipmate"
 Bundle "honza/vim-snippets"
-Bundle "jnurmine/Zenburn"
 " Snippets end
+Bundle "jnurmine/Zenburn"
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'FelikZ/ctrlp-py-matcher'
 
 " All of your plugins must be added before the following line
 call vundle#end()				" required
@@ -62,10 +64,10 @@ autocmd FileType html,css,xml,xsd,xsl,java EmmetInstall
 runtime macros/matchit.vim    " enable Matchit
 
 syntax on          " enable colors
+colorscheme molokai
 set hlsearch       " highlight search (very useful!)
 set incsearch      " search incremently (search while typing)
 set number
-colorscheme zenburn
 set bg=dark	" most terminals have a dark background
 set cursorline	" highlight current line
 
@@ -229,4 +231,30 @@ if has ("autocmd")
 
 endif " has("autocmd")
 
+"
+" CtrlP
+"
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_root_markers = ['pom.xml', 'gradle.build', 'grailsw', '.project', '.idea']
+
+" PyMatcher for CtrlP
+if !has('python')
+	echo 'In order to use pymatcher plugin, you need +python compiled vim'
+else
+	let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+endif
+" Set delay to prevent extra search
+let g:ctrlp_lazy_update = 350
+" Do not clear filenames cache, to improve CtrlP startup
+" You can manuall y clear it with <F5>
+let g:ctrlp_clear_cache_on_exit = 0
+" Set no file limit
+let g:ctrlp_max_files = 0
+" If ag is available use it as a filename list generator instead of 'find'
+if executable("ag")
+	set grepprg=ag\ --nogroup\ --nocolor
+	let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --skip-vcs-ignores --hidden -g ""'
+endif
 
