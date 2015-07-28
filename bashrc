@@ -152,3 +152,6 @@ export M2=$M2_HOME/bin
 export PATH=$M2:$PATH
 
 
+
+#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
+[[ -s "/Users/abuckeridge/.gvm/bin/gvm-init.sh" ]] && source "/Users/abuckeridge/.gvm/bin/gvm-init.sh"
