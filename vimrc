@@ -249,7 +249,7 @@ endif
 let g:ctrlp_lazy_update = 350
 " Do not clear filenames cache, to improve CtrlP startup
 " You can manuall y clear it with <F5>
-let g:ctrlp_clear_cache_on_exit = 0
+" let g:ctrlp_clear_cache_on_exit = 0
 " Set no file limit
 let g:ctrlp_max_files = 0
 " If ag is available use it as a filename list generator instead of 'find'
