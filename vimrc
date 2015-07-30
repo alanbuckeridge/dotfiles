@@ -40,6 +40,7 @@ Bundle "honza/vim-snippets"
 Bundle "jnurmine/Zenburn"
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'FelikZ/ctrlp-py-matcher'
+Plugin 'jiangmiao/auto-pairs'	" Auto close parentheses (would prefer lexima, but couldn't install from github)
 
 " All of your plugins must be added before the following line
 call vundle#end()				" required
@@ -157,7 +158,8 @@ map <C-s> <esc>:w<CR>
 imap <C-s> <esc>:w<CR>i
 " Quick ESC
 imap jj <ESC>
-inoremap <S-CR> <ESC>	" Shift-Return to leave Insert mode
+" Shift-Enter to continue editing on a new line (not working?!?)
+inoremap <S-CR> <ESC>o
 vnoremap <C-c> "+y
 " Shift-Insert is alread mapped to 'Paste' (and Ctrl-Insert is 'Copy')
 
