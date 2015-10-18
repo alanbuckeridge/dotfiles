@@ -41,3 +41,7 @@ fi
 
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
 [[ -s "/Users/abuckeridge/.gvm/bin/gvm-init.sh" ]] && source "/Users/abuckeridge/.gvm/bin/gvm-init.sh"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/abuckeridge/.sdkman"
+[[ -s "/Users/abuckeridge/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/abuckeridge/.sdkman/bin/sdkman-init.sh"
