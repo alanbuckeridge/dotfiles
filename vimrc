@@ -99,6 +99,7 @@ set wildignore+=*.swp,*~,._*
 set mouse=a
 set hidden	" so can swap buffers without writing them
 set showmatch   " Show matching bracket
+set lazyredraw	" redraw only when needed, e.g. not in the middle of macros
 set matchtime=2 " show matching bracket for 0.2 seconds
 set showmode    " show mode in status bar (insert/replace/...)
 set showcmd     " show typed command in status bar
@@ -114,6 +115,10 @@ set tabstop=4           " number of spaces a tab counts for
 set shiftwidth=4        " spaces for autoindents
 " set nowrap	" don't wrap lines
 set linespace=2
+set foldenable
+set foldlevelstart=10
+set foldmethod=syntax
+
 " set gdefault	"  always apply substitutions globally
 
 " List chars
@@ -144,6 +149,8 @@ else
   set udir=/tmp//
 endif
 
+" Highlight last inserted text
+nnoremap gV `[v`]
 " So that history filtering works for C-p/n
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
