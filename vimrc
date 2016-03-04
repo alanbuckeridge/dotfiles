@@ -27,8 +27,9 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'bling/vim-airline'
 Bundle 'jaromero/vim-monokai-refined'
-Bundle 'mattn/emmet-vim'
 Bundle 'tomasr/molokai'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'mattn/emmet-vim'
 Bundle 'vim-scripts/javacomplete'
 Bundle 'rking/ag.vim'
 " Snippets begin

@@ -150,7 +150,8 @@ export JAVA_HOME=/usr/lib/jvm/java-7-oracle/
 export M2_HOME=/home/alan/opt/apache-maven-3.2.1
 export M2=$M2_HOME/bin
 export PATH=$M2:$PATH
-
+# Following necessary for working with Grails to get round bug in jdk
+export GRAILS_OPTS="-Xverify:none"
 
 
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!

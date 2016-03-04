@@ -11,7 +11,7 @@ dir=~/dotfiles
 # old dotfiles backup directory
 olddir=~/dotfiles_old             
 # list of files/folders to symlink in homedir
-files="bashrc vimrc gvimrc profile tmux.conf conkyrc agignore"
+files="bashrc vimrc gvimrc profile tmux.conf conkyrc agignore spacemacs"
 
 ##########
 
