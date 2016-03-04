@@ -153,10 +153,6 @@ export PATH=$M2:$PATH
 # Following necessary for working with Grails to get round bug in jdk
 export GRAILS_OPTS="-Xverify:none"
 
-
-#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
-[[ -s "/Users/abuckeridge/.gvm/bin/gvm-init.sh" ]] && source "/Users/abuckeridge/.gvm/bin/gvm-init.sh"
-
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/Users/abuckeridge/.sdkman"
-[[ -s "/Users/abuckeridge/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/abuckeridge/.sdkman/bin/sdkman-init.sh"
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
