@@ -84,7 +84,13 @@ if ! shopt -oq posix; then
   fi
 fi
 
-source ~/.git-completion.bash
+# Git stuff
+if [ -f "$HOME/dotfiles/git-prompt.sh" ]; then
+. "$HOME/dotfiles/git-prompt.sh"
+fi
+if [ -f "$HOME/dotfiles/git-completion.bash" ]; then
+. "$HOME/dotfiles/git-completion.bash"
+fi
 
 #-------------------------------------------------------------
 # Aliases
@@ -146,15 +152,8 @@ alias cpuinfo='lscpu'
 # Environment variables
 #-------------------------------------------------------------
 
-export JAVA_HOME=/usr/lib/jvm/java-7-oracle/
-
 # Maven
 export M2_HOME=/home/alan/opt/apache-maven-3.2.1
 export M2=$M2_HOME/bin
 export PATH=$M2:$PATH
-# Following necessary for working with Grails to get round bug in jdk
-export GRAILS_OPTS="-Xverify:none"
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
