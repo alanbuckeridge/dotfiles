@@ -29,7 +29,7 @@ values."
      emacs-lisp
      git
      markdown
-     org
+     (org :variables org-enable-github-support t)
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
@@ -37,7 +37,7 @@ values."
      ;; syntax-checking
      version-control
      spotify
-     ;; (osx :variables osx-use-option-as-meta t)
+     osx
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -241,16 +241,24 @@ values."
 It is called immediately after `dotspacemacs/init'.  You are free to put almost
 any user code here.  The exception is org related code, which should be placed
 in `dotspacemacs/user-config'."
+  (setq-default mac-right-option-modifier nil)
   )
 
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
 This function is called at the very end of Spacemacs initialization after
 layers configuration. You are free to put any user code."
-  (setq deft-directory "~/Dropbox/notes")
-  (setq deft-default-extension "txt")
+  ;; My keys
+  (global-set-key [f5] 'deft)
+  ;; My notes - Deft
+  (setq deft-directory "~/Dropbox/notes"
+        deft-extensions '("txt" "md" "org")
+        deft-use-filename-as-title t
+        deft-default-extension "txt")
   (add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
   (add-to-list 'auto-mode-alist '("\\.txt\\'" . markdown-mode))
+  ;; Org settings
+  (with-eval-after-load 'org (setq org-agenda-files '("~/Dropbox/notes/org")))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
