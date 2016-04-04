@@ -29,7 +29,14 @@ values."
      emacs-lisp
      git
      markdown
-     (org :variables org-enable-github-support t)
+     (org :variables
+          org-enable-github-support t
+          org-agenda-files '("~/Dropbox/notes/org")
+          org-directory '("~/Dropbox/notes/org")
+          org-default-notes-file (expand-file-name "~/Dropbox/notes/org/capture.org")
+          org-refile-targets (quote ((nil :maxlevel . 9)
+                                     (org-agenda-files :maxlevel . 9)))
+          )
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
@@ -257,8 +264,6 @@ layers configuration. You are free to put any user code."
         deft-default-extension "txt")
   (add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
   (add-to-list 'auto-mode-alist '("\\.txt\\'" . markdown-mode))
-  ;; Org settings
-  (with-eval-after-load 'org (setq org-agenda-files '("~/Dropbox/notes/org")))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -271,7 +276,18 @@ layers configuration. You are free to put any user code."
  '(deft-markdown-mode-title-level 1)
  '(deft-use-filter-string-for-filename t)
  '(markdown-command "pandoc -f markdown_github -t html5")
- '(markdown-enable-math t))
+ '(markdown-enable-math t)
+ '(org-capture-templates
+   (quote
+    (("t" "Tasks" entry
+      (file+headline "~/Dropbox/notes/org/capture.org" "Tasks")
+      "* TODO %^{Task}\nSCHEDULED: %t\n" :immediate-finish t nil nil)
+     ("i" "Idea" entry
+      (file+headline "~/Dropbox/notes/org/capture.org" "Ideas")
+      "* %U %?" :prepend t :jump-to-captured t :empty-lines-after 1)
+     ("n" "Note" entry
+      (file+headline "~/Dropbox/notes/org/capture.org" "Notes")
+      "* %?\n%U\n")))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

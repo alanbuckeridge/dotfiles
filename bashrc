@@ -147,13 +147,3 @@ alias cpuinfo='lscpu'
 # export LESS_TERMCAP_ue=$'\E[0m'
 # export LESS_TERMCAP_us=$'\E[01;32m'
 
-
-#-------------------------------------------------------------
-# Environment variables
-#-------------------------------------------------------------
-
-# Maven
-export M2_HOME=/home/alan/opt/apache-maven-3.2.1
-export M2=$M2_HOME/bin
-export PATH=$M2:$PATH
-
