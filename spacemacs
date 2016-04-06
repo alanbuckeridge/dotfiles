@@ -279,15 +279,38 @@ layers configuration. You are free to put any user code."
  '(markdown-enable-math t)
  '(org-capture-templates
    (quote
-    (("t" "Tasks" entry
-      (file+headline "~/Dropbox/notes/org/capture.org" "Tasks")
-      "* TODO %^{Task}\nSCHEDULED: %t\n" :immediate-finish t nil nil)
+    (("t" "Tasks (Personal)" entry
+      (file+headline "~/Dropbox/notes/org/personal.org" "Tasks")
+      "* TODO %^{Task}\nSCHEDULED: %^t\n" :immediate-finish t nil nil)
      ("i" "Idea" entry
-      (file+headline "~/Dropbox/notes/org/capture.org" "Ideas")
-      "* %U %?" :prepend t :jump-to-captured t :empty-lines-after 1)
+      (file+headline "~/Dropbox/notes/org/ideas.org" "Ideas")
+      "* %U %?" :prepend t :empty-lines-after 1)
      ("n" "Note" entry
       (file+headline "~/Dropbox/notes/org/capture.org" "Notes")
-      "* %?\n%U\n")))))
+      "* %?\n%U\n" :empty-lines-after 1)
+     ("j" "Journal entry" entry
+      (file+datetree+prompt "~/Dropbox/notes/org/journal.org")
+      "* %?\n%U\n" :empty-lines-after 1)
+     ("w" "Work templates")
+     ("wn" "Work - new ticket" entry
+      (file "~/Dropbox/notes/org/work.org")
+      "* %^{Ticket} %?\n%U\nhttps://support.videologygroup.com/browse/%\\1\n\n" :empty-lines 1)
+     ("wt" "Work - Todo" entry
+      (file+headline "~/Dropbox/notes/org/work.org" "Refile")
+      "** TODO %^{Ticket} %?\nSCHEDULED: %^t"
+      :empty-lines 1)
+     ("wr" "Work - PR to review" entry
+      (file+headline "~/Dropbox/notes/org/work.org" "PRs to review")
+      "** TODO Review %^{Ticket} for %^{Who}\nhttps://support.videologygroup.com/browse/%\\1\nSCHEDULED: %^t"
+      :immediate-finish t nil nil)
+     ("wu" "Work - PR under review" entry
+      (file+headline "~/Dropbox/notes/org/work.org" "PRs under review")
+      "** TODO Under review: %^{Ticket}\nDEADLINE: %^t"
+      :immediate-finish t nil nil)
+     ("wm" "Work - Miscellaneous stuff" entry
+      (file+headline "~/Dropbox/notes/org/work.org" "Miscellaneous")
+      "* %U %?" :empty-lines-after 1)
+    ))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
