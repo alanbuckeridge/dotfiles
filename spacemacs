@@ -44,7 +44,6 @@ values."
      ;; syntax-checking
      version-control
      spotify
-     osx
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -56,7 +55,12 @@ values."
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
    ;; are declared in a layer which is not a member of
    ;; the list `dotspacemacs-configuration-layers'. (default t)
-   dotspacemacs-delete-orphan-packages t))
+   dotspacemacs-delete-orphan-packages t)
+  ;; load the osx layer only if we're on a Mac
+  (when (string-equal system-type "darwin")
+    (push 'osx dotspacemacs-configuration-layers))
+
+  )
 
 (defun dotspacemacs/init ()
   "Initialization function.
