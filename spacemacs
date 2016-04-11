@@ -34,6 +34,11 @@ values."
           org-agenda-files '("~/Dropbox/notes/org")
           org-directory '("~/Dropbox/notes/org")
           org-default-notes-file (expand-file-name "~/Dropbox/notes/org/capture.org")
+          org-agenda-skip-scheduled-if-deadline-is-shown t
+          org-agenda-todo-ignore-deadlines t
+          org-agenda-todo-ignore-scheduled t
+          org-agenda-skip-deadline-if-done t
+          org-agenda-skip-scheduled-if-done t
           org-refile-targets (quote ((nil :maxlevel . 9)
                                      (org-agenda-files :maxlevel . 9)))
           )
@@ -281,11 +286,18 @@ layers configuration. You are free to put any user code."
  '(deft-use-filter-string-for-filename t)
  '(markdown-command "pandoc -f markdown_github -t html5")
  '(markdown-enable-math t)
+ '(org-agenda-skip-deadline-prewarning-if-scheduled (quote pre-scheduled))
+ '(org-agenda-sorting-strategy
+     (quote
+          ((agenda habit-down time-up deadline-up priority-down category-keep)
+                (todo priority-down category-keep)
+                (tags priority-down category-keep)
+                (search category-keep))))
  '(org-capture-templates
    (quote
     (("t" "Tasks (Personal)" entry
       (file+headline "~/Dropbox/notes/org/personal.org" "Tasks")
-      "* TODO %^{Task}\nSCHEDULED: %^t\n" :immediate-finish t nil nil)
+      "* TODO %^{Task}\n" :immediate-finish t nil nil)
      ("i" "Idea" entry
       (file+headline "~/Dropbox/notes/org/ideas.org" "Ideas")
       "* %U %?" :prepend t :empty-lines-after 1)
@@ -298,10 +310,10 @@ layers configuration. You are free to put any user code."
      ("w" "Work templates")
      ("wn" "Work - new ticket" entry
       (file "~/Dropbox/notes/org/work.org")
-      "* %^{Ticket} %?\n%U\nhttps://support.videologygroup.com/browse/%\\1\n\n" :empty-lines 1)
+      "* TODO %^{Ticket} %?\n%U\nhttps://support.videologygroup.com/browse/%\\1\n\n" :empty-lines 1)
      ("wt" "Work - Todo" entry
       (file+headline "~/Dropbox/notes/org/work.org" "Refile")
-      "** TODO %^{Ticket} %?\nSCHEDULED: %^t"
+      "** TODO %^{Ticket} %?"
       :empty-lines 1)
      ("wr" "Work - PR to review" entry
       (file+headline "~/Dropbox/notes/org/work.org" "PRs to review")
@@ -311,10 +323,18 @@ layers configuration. You are free to put any user code."
       (file+headline "~/Dropbox/notes/org/work.org" "PRs under review")
       "** TODO Under review: %^{Ticket}\nDEADLINE: %^t"
       :immediate-finish t nil nil)
+     ("wl" "Work log" entry
+      (file+datetree+prompt "~/Dropbox/notes/org/work-log.org")
+      "* %?\n%U\n" :empty-lines 1)
      ("wm" "Work - Miscellaneous stuff" entry
       (file+headline "~/Dropbox/notes/org/work.org" "Miscellaneous")
-      "* %U %?" :empty-lines-after 1)
-    ))))
+      "* %U %?" :empty-lines-after 1))))
+ '(org-deadline-warning-days 7)
+ '(org-priority-faces
+   (quote
+    ((65 . ":foreground \"#F0DFAF\" :weight bold")
+     (66 . ":foreground \"LightSteelBlue\"")
+     (67 . ":foreground \"OliveDrab\"")))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
