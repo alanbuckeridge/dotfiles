@@ -310,7 +310,7 @@ layers configuration. You are free to put any user code."
      ("w" "Work templates")
      ("wn" "Work - new ticket" entry
       (file "~/Dropbox/notes/org/work.org")
-      "* TODO %^{Ticket} %?\n%U\nhttps://support.videologygroup.com/browse/%\\1\n\n" :empty-lines 1)
+      "* TODO %^{Ticket} %?\t:work:\n%U\nhttps://support.videologygroup.com/browse/%\\1\n\n" :empty-lines 1)
      ("wt" "Work - Todo" entry
       (file+headline "~/Dropbox/notes/org/work.org" "Refile")
       "** TODO %^{Ticket} %?"
