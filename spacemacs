@@ -27,6 +27,7 @@ values."
      ;; better-defaults
      deft
      emacs-lisp
+     ess  ;; R layer
      git
      markdown
      (org :variables
@@ -288,44 +289,56 @@ layers configuration. You are free to put any user code."
  '(markdown-enable-math t)
  '(org-agenda-skip-deadline-prewarning-if-scheduled (quote pre-scheduled))
  '(org-agenda-sorting-strategy
-     (quote
-          ((agenda habit-down time-up deadline-up priority-down category-keep)
-                (todo priority-down category-keep)
-                (tags priority-down category-keep)
-                (search category-keep))))
+   (quote
+    ((agenda habit-down time-up deadline-up priority-down category-keep)
+     (todo priority-down category-keep)
+     (tags priority-down category-keep)
+     (search category-keep))))
+ '(org-babel-load-languages (quote ((emacs-lisp . t) (R . t))))
  '(org-capture-templates
    (quote
     (("t" "Tasks (Personal)" entry
       (file+headline "~/Dropbox/notes/org/personal.org" "Tasks")
-      "* TODO %^{Task}\n" :immediate-finish t nil nil)
+      "* TODO %^{Task}
+" :immediate-finish t nil nil)
      ("i" "Idea" entry
       (file+headline "~/Dropbox/notes/org/ideas.org" "Ideas")
       "* %U %?" :prepend t :empty-lines-after 1)
      ("n" "Note" entry
       (file+headline "~/Dropbox/notes/org/capture.org" "Notes")
-      "* %?\n%U\n" :empty-lines-after 1)
+      "* %?
+%U
+" :empty-lines-after 1)
      ("j" "Journal entry" entry
       (file+datetree+prompt "~/Dropbox/notes/org/journal.org")
-      "* %?\n%U\n" :empty-lines-after 1)
+      "* %?
+%U
+" :empty-lines-after 1)
      ("w" "Work templates")
      ("wn" "Work - new ticket" entry
       (file "~/Dropbox/notes/org/work.org")
-      "* TODO %^{Ticket} %?\t:work:\n%U\nhttps://support.videologygroup.com/browse/%\\1\n\n" :empty-lines 1)
+      "* TODO %^{Ticket} %?	:work:
+%U
+https://support.videologygroup.com/browse/%\\1
+
+" :empty-lines 1)
      ("wt" "Work - Todo" entry
       (file+headline "~/Dropbox/notes/org/work.org" "Refile")
-      "** TODO %^{Ticket} %?"
-      :empty-lines 1)
+      "** TODO %^{Ticket} %?" :empty-lines 1)
      ("wr" "Work - PR to review" entry
       (file+headline "~/Dropbox/notes/org/work.org" "PRs to review")
-      "** TODO Review %^{Ticket} for %^{Who}\nhttps://support.videologygroup.com/browse/%\\1\nSCHEDULED: %^t"
-      :immediate-finish t nil nil)
+      "** TODO Review %^{Ticket} for %^{Who}
+https://support.videologygroup.com/browse/%\\1
+SCHEDULED: %^t" :immediate-finish t nil nil)
      ("wu" "Work - PR under review" entry
       (file+headline "~/Dropbox/notes/org/work.org" "PRs under review")
-      "** TODO Under review: %^{Ticket}\nDEADLINE: %^t"
-      :immediate-finish t nil nil)
+      "** TODO Under review: %^{Ticket}
+DEADLINE: %^t" :immediate-finish t nil nil)
      ("wl" "Work log" entry
       (file+datetree+prompt "~/Dropbox/notes/org/work-log.org")
-      "* %?\n%U\n" :empty-lines 1)
+      "* %?
+%U
+" :empty-lines 1)
      ("wm" "Work - Miscellaneous stuff" entry
       (file+headline "~/Dropbox/notes/org/work.org" "Miscellaneous")
       "* %U %?" :empty-lines-after 1))))
