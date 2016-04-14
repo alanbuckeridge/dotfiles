@@ -327,13 +327,12 @@ https://support.videologygroup.com/browse/%\\1
       "** TODO %^{Ticket} %?" :empty-lines 1)
      ("wr" "Work - PR to review" entry
       (file+headline "~/Dropbox/notes/org/work.org" "PRs to review")
-      "** TODO Review %^{Ticket} for %^{Who}
-https://support.videologygroup.com/browse/%\\1
-SCHEDULED: %^t" :immediate-finish t nil nil)
+      "** TODO Review %^{Ticket} for %^{Who}\nhttps://support.videologygroup.com/browse/%\\1\nSCHEDULED: %^t"
+      :prepend t :immediate-finish t nil nil)
      ("wu" "Work - PR under review" entry
       (file+headline "~/Dropbox/notes/org/work.org" "PRs under review")
-      "** TODO Under review: %^{Ticket}
-DEADLINE: %^t" :immediate-finish t nil nil)
+      "** TODO Under review: %^{Ticket}\nDEADLINE: %^t"
+      :prepend t :immediate-finish t nil nil)
      ("wl" "Work log" entry
       (file+datetree+prompt "~/Dropbox/notes/org/work-log.org")
       "* %?
