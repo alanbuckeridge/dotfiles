@@ -314,10 +314,13 @@ layers configuration. You are free to put any user code."
       "* %?
 %U
 " :empty-lines-after 1)
+     ("l" "Learn" entry
+      (file+headline "~/Dropbox/notes/org/learning.org" "Stuff to learn")
+      "* TO_LEARN %?" :empty-lines-after 1)
      ("w" "Work templates")
      ("wn" "Work - new ticket" entry
       (file "~/Dropbox/notes/org/work.org")
-      "* TODO %^{Ticket} %?	:work:
+      "* BACKLOG %^{Ticket} %?	:work:
 %U
 https://support.videologygroup.com/browse/%\\1
 
@@ -327,11 +330,7 @@ https://support.videologygroup.com/browse/%\\1
       "** TODO %^{Ticket} %?" :empty-lines 1)
      ("wr" "Work - PR to review" entry
       (file+headline "~/Dropbox/notes/org/work.org" "PRs to review")
-      "** TODO Review %^{Ticket} for %^{Who}\nhttps://support.videologygroup.com/browse/%\\1\nSCHEDULED: %^t"
-      :prepend t :immediate-finish t nil nil)
-     ("wu" "Work - PR under review" entry
-      (file+headline "~/Dropbox/notes/org/work.org" "PRs under review")
-      "** TODO Under review: %^{Ticket}\nDEADLINE: %^t"
+      "** TO_REVIEW Review %^{Ticket} for %^{Who}\nhttps://support.videologygroup.com/browse/%\\1\nSCHEDULED: %^t"
       :prepend t :immediate-finish t nil nil)
      ("wl" "Work log" entry
       (file+datetree+prompt "~/Dropbox/notes/org/work-log.org")
