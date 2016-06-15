@@ -42,6 +42,7 @@ Bundle "jnurmine/Zenburn"
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'FelikZ/ctrlp-py-matcher'
 Plugin 'jiangmiao/auto-pairs'	" Auto close parentheses (would prefer lexima, but couldn't install from github)
+Plugin 'derekwyatt/vim-scala'
 
 " All of your plugins must be added before the following line
 call vundle#end()				" required
