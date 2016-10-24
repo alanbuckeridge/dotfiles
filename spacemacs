@@ -18,6 +18,7 @@ values."
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(
+     csv
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
@@ -295,7 +296,7 @@ layers configuration. You are free to put any user code."
      (todo priority-down category-keep)
      (tags priority-down category-keep)
      (search category-keep))))
- '(org-babel-load-languages (quote ((emacs-lisp . t) (R . t))))
+ '(org-babel-load-languages (quote ((emacs-lisp . t) )))
  '(org-capture-templates
    (quote
     (("t" "Tasks (Personal)" entry
