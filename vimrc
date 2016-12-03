@@ -251,9 +251,7 @@ let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_root_markers = ['pom.xml', 'gradle.build', 'grailsw', '.project', '.idea']
 
 " PyMatcher for CtrlP
-if !has('python')
-	echo 'In order to use pymatcher plugin, you need +python compiled vim'
-else
+if has('python')
 	let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 endif
 " Set delay to prevent extra search
