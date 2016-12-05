@@ -1,3 +1,5 @@
+colorscheme molokai
+
 " Open gVim in maximised window
 if has('win32')
 	au GUIEnter * simalt ~x

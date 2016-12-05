@@ -1,5 +1,9 @@
 #!/bin/bash
 
+#
+# TODO Convert this to ansible
+#
+
 mkdir -p ~/bin
 touch .bash_profile_local
 

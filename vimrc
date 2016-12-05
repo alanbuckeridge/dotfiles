@@ -67,7 +67,6 @@ autocmd FileType html,css,xml,xsd,xsl,java EmmetInstall
 runtime macros/matchit.vim    " enable Matchit
 
 syntax on          " enable colors
-" colorscheme molokai
 set hlsearch       " highlight search (very useful!)
 set incsearch      " search incremently (search while typing)
 set number
