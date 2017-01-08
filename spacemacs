@@ -18,6 +18,7 @@ values."
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(
+     html
      csv
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
@@ -33,6 +34,11 @@ values."
      markdown
      (org :variables
           org-enable-github-support t
+          org-enable-bootstrap-support t
+          org-enable-reveal-js-support t
+          org-confirm-babel-evaluate nil
+          org-src-tab-acts-natively t
+          org-display-inline-images t
           org-agenda-files '("~/Dropbox/notes/org")
           org-directory '("~/Dropbox/notes/org")
           org-default-notes-file (expand-file-name "~/Dropbox/notes/org/capture.org")
@@ -57,7 +63,7 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(groovy-mode)
+   dotspacemacs-additional-packages '(groovy-mode ob-ipython)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -128,7 +134,7 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
-   dotspacemacs-default-font '("Source Code Pro"
+   dotspacemacs-default-font '("Monospace"
                                :size 13
                                :weight normal
                                :width normal
@@ -276,6 +282,11 @@ layers configuration. You are free to put any user code."
         deft-default-extension "txt")
   (add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
   (add-to-list 'auto-mode-alist '("\\.txt\\'" . markdown-mode))
+  (with-eval-after-load 'org
+    (org-babel-do-load-languages
+     'org-babel-load-languages
+     '((ipython . t)))
+    )
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
