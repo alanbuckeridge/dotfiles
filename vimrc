@@ -67,7 +67,6 @@ autocmd FileType html,css,xml,xsd,xsl,java EmmetInstall
 runtime macros/matchit.vim    " enable Matchit
 
 syntax on          " enable colors
-" colorscheme molokai
 set hlsearch       " highlight search (very useful!)
 set incsearch      " search incremently (search while typing)
 set number
@@ -251,9 +250,7 @@ let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_root_markers = ['pom.xml', 'gradle.build', 'grailsw', '.project', '.idea']
 
 " PyMatcher for CtrlP
-if !has('python')
-	echo 'In order to use pymatcher plugin, you need +python compiled vim'
-else
+if has('python')
 	let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 endif
 " Set delay to prevent extra search
