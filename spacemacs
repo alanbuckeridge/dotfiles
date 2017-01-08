@@ -18,6 +18,8 @@ values."
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(
+     html
+     rust
      csv
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
@@ -47,6 +49,7 @@ values."
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
+     python
      ;; spell-checking
      syntax-checking
      version-control
@@ -128,7 +131,7 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
-   dotspacemacs-default-font '("Source Code Pro"
+   dotspacemacs-default-font '("Monospace"
                                :size 14
                                :weight normal
                                :width normal
@@ -276,6 +279,9 @@ layers configuration. You are free to put any user code."
         deft-default-extension "txt")
   (add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
   (add-to-list 'auto-mode-alist '("\\.txt\\'" . markdown-mode))
+  (use-package org
+    :config
+    (setq org-startup-indented t))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
