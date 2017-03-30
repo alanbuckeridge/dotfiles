@@ -11,14 +11,14 @@ sudo apt-get update
 
 # Git
 
-sudo apt-get -y install git
+# sudo apt-get -y install git
 
 # My dotfiles
 
-cd ~ && \
-git clone https://github.com/buckeram/dotfiles.git && \
-chmod +x ./dotfiles/makesymlinks.sh && \
-./dotfiles/makesymlinks.sh
+# cd ~ && \
+# git clone https://github.com/buckeram/dotfiles.git && \
+# chmod +x ./dotfiles/makesymlinks.sh && \
+# ./dotfiles/makesymlinks.sh
 
 # Vim + Vundle (start vim and run :BundleInstall)
 
@@ -53,12 +53,12 @@ mkdir -p ~/opt && cd ~/opt && \
     export PATH="$PATH:$HOME/opt/scala/bin" && \
     echo PATH="$PATH:$HOME/opt/scala/bin" >> ~/.bash_profile_local
 
-cd ~/opt && wget http://d3kbcqa49mib13.cloudfront.net/spark-2.0.2-bin-hadoop2.7.tgz && \
-    tar xf spark-2.0.2-bin-hadoop2.7.tgz && \
-    ln -s spark-2.0.2-bin-hadoop2.7 spark && \
+cd ~/opt && wget http://d3kbcqa49mib13.cloudfront.net/spark-2.1.0-bin-hadoop2.7.tgz && \
+    tar xf spark-2.1.0-bin-hadoop2.7.tgz && \
+    ln -s spark-2.1.0-bin-hadoop2.7 spark && \
     export PATH="$PATH:$HOME/opt/spark/bin" && \
     echo PATH="$PATH:$HOME/opt/spark/bin" >> ~/.bash_profile_local && \
-    rm -f spark-2.0.2-bin*.tgz
+    rm -f spark-*-bin*.tgz
 
 # SBT
 
@@ -78,7 +78,7 @@ cd ~/bin && ln -s ~/opt/activator/bin/activator
 
 # Anaconda (Python 3)
 
-wget https://repo.continuum.io/archive/Anaconda3-4.2.0-Linux-x86_64.sh -O ~/anaconda.sh && \
+wget https://repo.continuum.io/archive/Anaconda3-4.3.0-Linux-x86_64.sh -O ~/anaconda.sh && \
     bash ~/anaconda.sh -b -p $HOME/opt/anaconda && \
     export PATH="$HOME/opt/anaconda/bin:$PATH" && \
     echo PATH="$HOME/opt/anaconda/bin:$PATH" >> ~/.bash_profile_local && \
@@ -87,7 +87,7 @@ wget https://repo.continuum.io/archive/Anaconda3-4.2.0-Linux-x86_64.sh -O ~/anac
 # IntelliJ IDEA (still need to enter license manually)
 
 cd ~/opt && \
-    wget https://download.jetbrains.com/idea/ideaIU-2016.3-no-jdk.tar.gz && \
+    wget https://download.jetbrains.com/idea/ideaIU-2016.3.4.tar.gz && \
     tar xfz ideaIU-*.tar.gz && \
     rm -f ideaIU-*.tar.gz && \
     cd ~/bin && \
@@ -140,6 +140,14 @@ chmod +x ~/bin/docker-compose
 # hugo
 
 sudo apt-get install -y hugo
+
+# Numix theme
+sudo add-apt-repository ppa:numix/ppa
+sudo apt-get update
+sudo apt-get install -y numix-gtk-theme numix-icon-theme-circle
+
+# Tmux
+sudo apt-get install -y tmux
 
 ## TODO ##
 # Kubernetes
