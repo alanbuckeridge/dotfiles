@@ -43,7 +43,7 @@ values."
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      helm
-     ;; auto-completion
+     auto-completion
      ;; better-defaults
      deft
      emacs-lisp
@@ -77,6 +77,9 @@ values."
      version-control
      spotify
      scala
+     (latex :variables
+            latex-enable-auto-fill t
+            latex-enable-folding t)
      (ranger :variables
              ranger-show-preview t
              ranger-show-hidden t
@@ -358,6 +361,7 @@ layers configuration. You are free to put any user code."
   (use-package org
     :config
     (setq org-startup-indented t))
+  (add-hook 'doc-view-mode-hook 'auto-revert-mode)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
