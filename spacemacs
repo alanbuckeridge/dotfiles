@@ -359,6 +359,8 @@ layers configuration. You are free to put any user code."
   (use-package org
     :config
     (setq org-startup-indented t))
+  ;; automatically save Org files
+  (add-hook 'auto-save-hook 'org-save-all-org-buffers)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
