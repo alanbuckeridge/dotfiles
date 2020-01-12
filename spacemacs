@@ -73,7 +73,7 @@ values."
             shell-default-height 30
             shell-default-position 'bottom)
      python
-     ;; spell-checking
+     spell-checking
      syntax-checking
      version-control
      spotify
@@ -81,6 +81,7 @@ values."
      (latex :variables
             latex-enable-auto-fill t
             latex-enable-folding t)
+     bibtex
      (ranger :variables
              ranger-show-preview t
              ranger-show-hidden t
@@ -374,6 +375,15 @@ layers configuration. You are free to put any user code."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(TeX-view-program-selection
+   (quote
+   (((output-dvi has-no-display-manager)
+     "dvi2tty")
+    ((output-dvi style-pstricks)
+     "dvips and gv")
+    (output-dvi "xdvi")
+    (output-pdf "Okular")
+    (output-html "xdg-open"))))
  '(deft-markdown-mode-title-level 1)
  '(deft-use-filter-string-for-filename t t)
  '(markdown-command "pandoc -f markdown_github -t html5")
