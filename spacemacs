@@ -387,6 +387,7 @@ layers configuration. You are free to put any user code."
      (output-html "xdg-open"))))
  '(deft-markdown-mode-title-level 1)
  '(deft-use-filter-string-for-filename t t)
+ '(ispell-program-name "aspell")
  '(markdown-command "pandoc -f markdown_github -t html5")
  '(markdown-enable-math t)
  '(org-agenda-skip-deadline-prewarning-if-scheduled (quote pre-scheduled))

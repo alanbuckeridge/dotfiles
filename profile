@@ -31,6 +31,10 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
+csv() {
+	cat $1 | sed -e 's/,/ ,/g' | column -s, -t | less -#5 -N -S
+}
+
 # Following necessary for working with Grails to get round bug in jdk
 export GRAILS_OPTS="-Xverify:none"
 
